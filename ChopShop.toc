@@ -1,6 +1,6 @@
 ## Interface: 90207
 ## Title: ChopShop
 ## Author: Multani
-## Version: 1.0
+## Version: 1.1
 
 ChopShop.lua
