@@ -7,8 +7,8 @@ local MICRO_BUTTONS = {
     QuestLogMicroButton,
     GuildMicroButton,
     LFDMicroButton,
-    EJMicroButton,
     CollectionsMicroButton,
+    EJMicroButton,
     MainMenuMicroButton,
     HelpMicroButton,
 }
