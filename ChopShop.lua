@@ -26,16 +26,15 @@ end)
 -- Repositions buttons on layout changes (enter/exit pet battle or vehicle)
 hooksecurefunc("MoveMicroButtons", function(_, _, _, _, _, isStacked)
     stacked = isStacked;
-    local xOffset, yOffset;
+    local xOffset, yOffset = 27, 6;
 
     if stacked then
         if (HasVehicleActionBar()) then
             xOffset, yOffset = OverrideActionBarMixin:GetMicroButtonAnchor();
+            xOffset = xOffset - 4;
         else
             xOffset, yOffset = 9, 26;
         end
-    else
-        xOffset, yOffset = 27, 6;
     end
 
     reanchorCharacterMicroButton(xOffset, yOffset);
