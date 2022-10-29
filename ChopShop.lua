@@ -26,12 +26,19 @@ end)
 -- Repositions buttons on layout changes (enter/exit pet battle or vehicle)
 hooksecurefunc("MoveMicroButtons", function(_, _, _, _, _, isStacked)
     stacked = isStacked;
+    local xOffset, yOffset;
 
     if stacked then
-        reanchorCharacterMicroButton(9, 26);
+        if (HasVehicleActionBar()) then
+            xOffset, yOffset = OverrideActionBarMixin:GetMicroButtonAnchor();
+        else
+            xOffset, yOffset = 9, 26;
+        end
     else
-        reanchorCharacterMicroButton(27, 6);
+        xOffset, yOffset = 27, 6;
     end
+
+    reanchorCharacterMicroButton(xOffset, yOffset);
 end)
 
 -- Removes shop button from escape menu
