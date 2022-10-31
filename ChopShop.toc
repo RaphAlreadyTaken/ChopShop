@@ -1,6 +1,6 @@
 ## Interface: 100000
 ## Title: ChopShop
 ## Author: Multani
-## Version: 2.1
+## Version: 2.2
 
 ChopShop.lua
