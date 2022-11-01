@@ -31,7 +31,10 @@ hooksecurefunc("MoveMicroButtons", function(_, _, _, _, _, isStacked)
     if stacked then
         if (HasVehicleActionBar() or HasOverrideActionBar()) then
             xOffset, yOffset = OverrideActionBarMixin:GetMicroButtonAnchor();
-            xOffset = xOffset - 4;
+
+            if (HasVehicleActionBar()) then
+                xOffset = xOffset - 4;
+            end
         else
             xOffset, yOffset = 9, 26;
         end
