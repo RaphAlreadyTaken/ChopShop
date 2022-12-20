@@ -4,9 +4,9 @@ local stacked = false;
 ----************ Local functions ************----
 
 -- Repositions Character button (first button) with offsets
-function reanchorCharacterMicroButton(xOffset, yOffset)
+function reanchorCharacterMicroButton(anchor, anchorTo, relAnchor, x, y)
     CharacterMicroButton:ClearAllPoints();
-    CharacterMicroButton:SetPoint('BOTTOMLEFT', CharacterMicroButton:GetParent(), 'BOTTOMLEFT', xOffset, yOffset);
+    CharacterMicroButton:SetPoint(anchor, anchorTo, relAnchor, x, y);
 end
 
 ----************ Hooks ************----
@@ -19,27 +19,19 @@ hooksecurefunc("UpdateMicroButtons", function(...)
     MainMenuMicroButton:SetPoint("TOPLEFT", EJMicroButton, "TOPRIGHT", 1, 0);
 
     if not stacked then
-        reanchorCharacterMicroButton(27, 6);
+        reanchorCharacterMicroButton('BOTTOMLEFT', CharacterMicroButton:GetParent(), 'BOTTOMLEFT',  27, 6);
     end
 end)
 
 -- Repositions buttons on layout changes (enter/exit pet battle or vehicle)
-hooksecurefunc("MoveMicroButtons", function(_, _, _, _, _, isStacked)
+hooksecurefunc("MoveMicroButtons", function(anchor, anchorTo, relAnchor, x, y, isStacked)
     stacked = isStacked;
-    local xOffset, yOffset = 27, 6;
 
     if stacked then
-        if (HasVehicleActionBar()) then
-            xOffset, yOffset = OverrideActionBarMixin:GetMicroButtonAnchor();
-        elseif (HasOverrideActionBar()) then
-            xOffset, yOffset = OverrideActionBarMixin:GetMicroButtonAnchor();
-            xOffset = xOffset - 4;
-        else
-            xOffset, yOffset = 9, 26;
-        end
+        reanchorCharacterMicroButton(anchor, anchorTo, relAnchor, x, y);
+    else
+        reanchorCharacterMicroButton(anchor, anchorTo, relAnchor, 27, 6);
     end
-
-    reanchorCharacterMicroButton(xOffset, yOffset);
 end)
 
 -- Removes shop button from escape menu
