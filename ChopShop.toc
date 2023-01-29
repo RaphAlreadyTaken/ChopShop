@@ -1,6 +1,6 @@
-## Interface: 100002
+## Interface: 100005
 ## Title: ChopShop
 ## Author: Multani
-## Version: 2.4
+## Version: 2.5
 
 ChopShop.lua

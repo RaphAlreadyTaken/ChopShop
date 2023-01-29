@@ -1,37 +1,8 @@
--- Buttons should be stacked (true) or not
-local stacked = false;
-
-----************ Local functions ************----
-
--- Repositions Character button (first button) with offsets
-function reanchorCharacterMicroButton(anchor, anchorTo, relAnchor, x, y)
-    CharacterMicroButton:ClearAllPoints();
-    CharacterMicroButton:SetPoint(anchor, anchorTo, relAnchor, x, y);
-end
-
 ----************ Hooks ************----
 
 -- Removes shop button from menu bar
 hooksecurefunc("UpdateMicroButtons", function(...)
     StoreMicroButton:Hide();
-
-    MainMenuMicroButton:ClearAllPoints();
-    MainMenuMicroButton:SetPoint("TOPLEFT", EJMicroButton, "TOPRIGHT", 1, 0);
-
-    if not stacked then
-        reanchorCharacterMicroButton('BOTTOMLEFT', CharacterMicroButton:GetParent(), 'BOTTOMLEFT',  27, 6);
-    end
-end)
-
--- Repositions buttons on layout changes (enter/exit pet battle or vehicle)
-hooksecurefunc("MoveMicroButtons", function(anchor, anchorTo, relAnchor, x, y, isStacked)
-    stacked = isStacked;
-
-    if stacked then
-        reanchorCharacterMicroButton(anchor, anchorTo, relAnchor, x, y);
-    else
-        reanchorCharacterMicroButton(anchor, anchorTo, relAnchor, 27, 6);
-    end
 end)
 
 -- Removes shop button from escape menu
