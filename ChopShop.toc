@@ -1,6 +1,6 @@
-## Interface: 100107
+## Interface: 100200
 ## Title: ChopShop
 ## Author: Multani-Vol'jin
-## Version: 2.9
+## Version: 2.10
 
 ChopShop.lua
