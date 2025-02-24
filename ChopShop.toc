@@ -3,7 +3,7 @@
 ## Name: ChopShop
 ## Notes: Removes in game Blizzard store button
 ## Author: Multani-Vol'jin
-## Version: 3.2
-## Interface: 110005
+## Version: 3.3
+## Interface: 110007
 
 ChopShop.lua
