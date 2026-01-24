@@ -14,7 +14,7 @@
 ## Category-zhCN: 用户界面
 ## Category-zhTW: 使用者介面
 ## Author: Multani-Vol'jin
-## Version: 3.4
-## Interface: 110100
+## Version: 3.5
+## Interface: 120000, 120001
 
 ChopShop.lua
